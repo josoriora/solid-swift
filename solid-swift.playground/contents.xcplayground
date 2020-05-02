@@ -4,5 +4,6 @@
         <page name='Object Oriented Programming'/>
         <page name='Solid Principles'/>
         <page name='Single Responsibility Principle'/>
+        <page name='Code Example SRP'/>
     </pages>
 </playground>
