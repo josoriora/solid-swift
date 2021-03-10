@@ -5,5 +5,10 @@
         <page name='Solid Principles'/>
         <page name='Single Responsibility Principle'/>
         <page name='Code Example SRP'/>
+        <page name='Open Closed Principle'/>
+        <page name='Negative Example Open Closed'/>
+        <page name='Liskov Substitution Principle'/>
+        <page name='Interface Segregation Principle'/>
+        <page name='Dependency Inversion Principle'/>
     </pages>
 </playground>
