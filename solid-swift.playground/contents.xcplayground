@@ -4,7 +4,8 @@
         <page name='Object Oriented Programming'/>
         <page name='Solid Principles'/>
         <page name='Single Responsibility Principle'/>
-        <page name='Code Example SRP'/>
+        <page name='Negative Code Example SRP'/>
+        <page name='Positive Example SRP'/>
         <page name='Open Closed Principle'/>
         <page name='Negative Example Open Closed'/>
         <page name='Positive Example Open Closed'/>

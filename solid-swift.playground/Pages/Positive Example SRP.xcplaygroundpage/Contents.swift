@@ -3,18 +3,6 @@
 import Foundation
 
 /*:
- # Problem statement
-*/
-
-protocol EmailMessage {
-    init(userName: String, email: String)
-
-    func generateMessage(content: String)
-
-    func sendMessage()
-}
-
-/*:
  # Solution
 */
 
@@ -22,7 +10,7 @@ protocol MessageContent {
 
 }
 
-protocol EmailMessageFixed {
+protocol EmailMessage {
     init(userName: String, email: String)
 
     func generateMessage(content: String) -> MessageContent
@@ -41,5 +29,6 @@ protocol EmailSender {
  and so its responsibility. And if this class has more than one reason to change it can modify another
  behavior when it is not intended.
 */
+
 
 //: [Next](@next)
