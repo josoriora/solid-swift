@@ -50,9 +50,4 @@ class AreaCalculator {
     }
 }
 
-/*:
- # Solution
- */
-
-
 //: [Next](@next)

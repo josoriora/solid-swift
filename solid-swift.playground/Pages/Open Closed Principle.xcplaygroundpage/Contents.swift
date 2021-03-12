@@ -6,7 +6,7 @@
 
  A class must be open for extension but closed for modification.
  
- The key of this principle are the abstractions. The interface provides a contracy but at the samte time it gives
+ The key of this principle are the abstractions. The interface provides a contract but at the samte time it gives
  me the freedom of implementation.
  
 */
