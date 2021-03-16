@@ -4,7 +4,7 @@ import Foundation
 
 /*:
  Previous example had an issue when changing the height or the width
- of a square. Let fix that issue.
+ of a square. Let's fix that issue.
  */
 
 class Rectangle {
@@ -64,6 +64,10 @@ let rectangle = Rectangle(height: 2, width: 3)
 
 print("is area 20 after process? \(Process.process(rectangle: rectangle) == 20)")
 print("is area 20 after process? \(Process.process(rectangle: square) == 20)")
+
+/*:
+ Current solution still breaks Liskov substitution principle and also breaks open closed principle.
+ */
 
 
 //: [Next](@next)
