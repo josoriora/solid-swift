@@ -10,6 +10,8 @@
         <page name='Negative Example Open Closed'/>
         <page name='Positive Example Open Closed'/>
         <page name='Liskov Substitution Principle'/>
+        <page name='1 - Negative Liskov Substitution'/>
+        <page name='2 - Negative Liskov Substitution'/>
         <page name='Interface Segregation Principle'/>
         <page name='Dependency Inversion Principle'/>
     </pages>
