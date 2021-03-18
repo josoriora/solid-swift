@@ -67,7 +67,10 @@ print("is area 20 after process? \(Process.process(rectangle: square) == 20)")
 
 /*:
  Current solution still breaks Liskov substitution principle and also breaks open closed principle.
+ 
+
  */
+
 
 
 //: [Next](@next)

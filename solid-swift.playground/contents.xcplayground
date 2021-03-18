@@ -12,7 +12,10 @@
         <page name='Liskov Substitution Principle'/>
         <page name='1 - Negative Liskov Substitution'/>
         <page name='2 - Negative Liskov Substitution'/>
+        <page name='Design by Contract'/>
         <page name='Interface Segregation Principle'/>
+        <page name='Negative Interface Segregation principle'/>
+        <page name='Positive Example Interface Segregation Principle'/>
         <page name='Dependency Inversion Principle'/>
     </pages>
 </playground>
