@@ -17,5 +17,7 @@
         <page name='Negative Interface Segregation principle'/>
         <page name='Positive Example Interface Segregation Principle'/>
         <page name='Dependency Inversion Principle'/>
+        <page name='Negative Example Dependency Inversion'/>
+        <page name='Positve Example Dependency Inversion'/>
     </pages>
 </playground>
