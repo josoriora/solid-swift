@@ -1,4 +1,4 @@
- 
+
 # Object Oriented Programming
  It is a way of programming based on the concept of objects as an entity
  capable of storing data in form of fields and methods and operations that
@@ -44,7 +44,7 @@ protocol MessageContent {
 
 }
 
-protocol EmailMessageFixed {
+protocol EmailMessage {
     init(userName: String, email: String)
 
     func generateMessage(content: String) -> MessageContent
@@ -63,3 +63,97 @@ protocol EmailSender {
  Because a responsibility is a reason to change. If the requirements change, the class changes
  and so it’s responsibility. And if this class has more than one reason to change it can modify another
  behavior when it is not intended.
+
+## Open Closed Principle
+
+ A class must be open for extension but closed for modification.
+
+The key of this principle are the abstractions. The interface provides a contract but at the samte time it gives
+
+ me the freedom of implementation.
+
+### Problem statement:
+
+```swift
+enum ShapeType {
+    case circle
+    case square
+}
+
+protocol Shape {
+    var type: ShapeType { get }
+}
+
+struct Circle: Shape {
+    let type: ShapeType = .circle
+    var radius: Double
+    
+    func calculateCirculeArea() -> Double {
+        return Double.pi * radius * radius
+    }
+}
+
+struct Square: Shape {
+    let type: ShapeType
+    var side: Double
+    
+    func calculateSquareArea() -> Double {
+        return side * side
+    }
+}
+
+class AreaCalculator {
+    static func calculateArea(shapes: [Shape]) -> Double {
+        var result: Double = 0
+        
+        shapes.forEach({(shape: Shape) in
+            switch shape.type {
+            case .circle:
+                result += (shape as! Circle).calculateCirculeArea()
+            case .square:
+                result += (shape as! Square).calculateSquareArea()
+            }
+        })
+        
+        return result
+    }
+}
+```
+
+If a new shape needs to be added, the AreaCalculator needs to be modified hence violating the open closed principle.
+
+### Solution:
+
+```swift
+protocol Shape {
+    func calculateArea() -> Double
+}
+
+struct Circle: Shape {
+    var radius: Double
+    
+    func calculateArea() -> Double {
+        return Double.pi * radius * radius
+    }
+}
+
+struct Square: Shape {
+    var side: Double
+    
+    func calculateArea() -> Double {
+        return side * side
+    }
+}
+
+class AreaCalculator {
+    static func calculateArea(shapes: [Shape]) -> Double {
+        var result: Double = 0
+        
+        shapes.forEach({(shape: Shape) in
+            result += shape.calculateArea()
+        })
+        
+        return result
+    }
+}
+```
