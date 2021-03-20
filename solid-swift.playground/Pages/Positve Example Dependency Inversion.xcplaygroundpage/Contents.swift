@@ -43,4 +43,13 @@ let logger = MinionServiceLogger()
 logger.printMinions(service: twoMinionsService)
 logger.printMinions(service: threeMinionsService)
 
+/*
+ # Recommendations:
+ 
+ - No variable should have a reference or pointer to a concrete class.
+ - No class should inherit from a concrete class.
+ - No method should overwrite a method already implemented on a base class.
+ 
+ */
+
 //: [Next](@next)
