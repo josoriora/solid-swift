@@ -1,5 +1,15 @@
 
+
+# TLDR
+
+1. **The Single Responsibility Principle** — Classes should have a single responsibility and thus only a single reason to change.
+2. **The Open/Closed Principle** — Classes and other entities should be open for extension but closed for modification.
+3. **The Liskov Substitution Principle** — Objects should be replaceable by their subtypes.
+4. **The Interface Segregation Principle** — Interfaces should be client specific rather than general.
+5. **The Dependency Inversion Principle** — Depend on abstractions rather than concretions.
+
 # Object Oriented Programming
+
  It is a way of programming based on the concept of objects as an entity
  capable of storing data in form of fields and methods and operations that
  can be done on itself. An object can modify its fields giving the possibility
@@ -37,6 +47,8 @@ protocol EmailMessage {
 }
 ```
 
+Email Message has 2 responsibilites generate message and send message, thus violating the Single Responsibility Principle.
+
 ### Solution
 
 ```swift
@@ -56,6 +68,7 @@ protocol EmailSender {
     func sendMessage()
 }
 ```
+
 
 
 ### Why separate by responsibilities? 
@@ -158,6 +171,8 @@ class AreaCalculator {
 }
 ```
 
+With this new abstraction if a new shape is added AreaCalculator does not need to be modified so now we open for extension and closed for modification.
+
 ## Liskov Substitution Principle
 
 Also known as design by contract. Parent classes should be able to be replaced by chlid classes without modifying the behavior of the system.
@@ -189,16 +204,11 @@ square.height = 8
 print("is square a square now? \(square.height == square.width)")
 ```
 
-
+In this example we see that square class is not a proper representation of square, because a change of height on a square implies a change of width and viceversa.
 
 ### Solution:
 
 ```swift
-/*:
- Previous example had an issue when changing the height or the width
- of a square. Let's fix that issue.
- */
-
 class Rectangle {
     private var height: Double
     private var width: Double
@@ -257,10 +267,11 @@ let rectangle = Rectangle(height: 2, width: 3)
 print("is area 20 after process? \(Process.process(rectangle: rectangle) == 20)")
 print("is area 20 after process? \(Process.process(rectangle: square) == 20)")
 
-/*:
- Current solution still breaks Liskov substitution principle and also breaks open closed principle.
- */
 ```
+
+Current solution still breaks Liskov substitution principle, parent class can not be replaced by child class without modifying behavior.
+
+This issue is solved by not violating the design by contract rules which are depicted below. In general The Square is a Rectangle design is not a good solution and a proper solution it involves using a Shape interface as in previous examples.
 
 ## Design by Contract:
 
@@ -370,10 +381,10 @@ let timer = Timer()
 timer.register(timeout: 30, client: timedDoor) // This code makes sense
 timer.register(timeout: 30, client: normalDoor) // This one NOT.
 
-/*
- This is interface pollution. Our interface is enforcing methods not needed by all the clients.
- */
 ```
+
+
+This is interface pollution. Our interface is enforcing methods not needed by all the clients. A Normal Door does not need a timeout method.
 
 ### Solution:
 
@@ -431,8 +442,10 @@ let normalDoor = NormalDoor()
 let timer = Timer()
 
 timer.register(timeout: 30, client: timedDoor) // This code makes sense
-//timer.register(timeout: 30, client: normalDoor) This whole line now it does not compile
+//timer.register(timeout: 30, client: normalDoor) This whole line it does not compile now
 ```
+
+By separating interfaces NormalDoor implements what it needs in the same case as TimedDoor.
 
 ## Dependeny inversion Principle:
 
@@ -466,12 +479,10 @@ let service = MinionService()
 let logger = MinionServiceLogger()
 
 logger.printMinions(service: service)
+```
 
-/**
  How to make the interface extendable?
  What if the minions come from a web service, or maybe they come from a database?
- */
-```
 
 ### Solution:
 
@@ -517,6 +528,8 @@ let logger = MinionServiceLogger()
 logger.printMinions(service: twoMinionsService)
 logger.printMinions(service: threeMinionsService)
 ```
+
+By defining the service as a protocol (interface) we can extend it in concrete classes as we see fit and we use the abstraction to connect with other classes so we don't break anything.
 
 ### Recommendations:
 
