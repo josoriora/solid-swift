@@ -81,9 +81,7 @@ protocol EmailSender {
 
  A class must be open for extension but closed for modification.
 
-The key of this principle are the abstractions. The interface provides a contract but at the samte time it gives
-
- me the freedom of implementation.
+The key of this principle are the abstractions. The interface provides a contract but at the same time it gives me the freedom of implementation.
 
 ### Problem statement:
 
@@ -171,7 +169,7 @@ class AreaCalculator {
 }
 ```
 
-With this new abstraction if a new shape is added AreaCalculator does not need to be modified so now we open for extension and closed for modification.
+With this new abstraction if a new shape is added AreaCalculator does not need to be modified so now we are open for extension and closed for modification.
 
 ## Liskov Substitution Principle
 
@@ -271,7 +269,7 @@ print("is area 20 after process? \(Process.process(rectangle: square) == 20)")
 
 Current solution still breaks Liskov substitution principle, parent class can not be replaced by child class without modifying behavior.
 
-This issue is solved by not violating the design by contract rules which are depicted below. In general The Square is a Rectangle design is not a good solution and a proper solution it involves using a Shape interface as in previous examples.
+This issue is solved by not violating the design by contract rules which are depicted below. In general The Square is a Rectangle design is not a good solution and a proper solution involves using a Shape interface as in previous examples.
 
 ## Design by Contract:
 
@@ -315,7 +313,7 @@ https://dev.to/rlxdprogrammer/design-by-contract---learn-something-new-about-oop
 
 ## Interface Segregation Principle:
 
-Clients should not be forced to depedent on interfaces they don't use. When they are forced they are suceptible to interfaces changes which results in more coupling.
+Clients should not be forced to depedent on interfaces they don't use. When they are forced, they are suceptible to interfaces changes which results in more coupling.
 
 This priciple deals with the issues on fat interfaces.
 
@@ -449,7 +447,7 @@ By separating interfaces NormalDoor implements what it needs in the same case as
 
 ## Dependeny inversion Principle:
 
-High level module should not depend on a lower level module both should rely on abstractions. Expressed on another way abstractions should not depend on details, details should depend on abstractions.
+High level module should not depend on a lower level module, both should rely on abstractions. Expressed on another way abstractions should not depend on details, details should depend on abstractions.
 
 We should always rely on abstractions.
 
